@@ -102,6 +102,7 @@ if selected_page == "Containers":
         response = requests.request("POST", url, headers=headers, data=payload)
 
         st.write("Customer was charged")
+        st.write(response.text)
         supabase.table('container_transaction').update({'status': 'Charged'}).eq('customer_id',customer_id).execute()
 
 # if selected_page == "Customers":
